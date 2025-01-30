@@ -1,8 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.room)
+    alias(libs.plugins.hilt.android)
     id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
     kotlin("plugin.serialization") version "1.9.23"
 }
 
@@ -71,14 +72,25 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     //navigation
-    implementation("androidx.navigation:navigation-compose:2.8.6")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
 
     //hilt
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Room database
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
+    annotationProcessor(libs.room.compiler)
 }
 
 kapt {
     correctErrorTypes = true
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }

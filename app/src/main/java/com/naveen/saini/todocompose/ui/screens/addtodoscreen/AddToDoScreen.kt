@@ -35,11 +35,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import java.util.Calendar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddToDoScreen(goBack: () -> Unit) {
+    val viewModel = hiltViewModel<AddToDoViewModel>()
     var taskName by remember { mutableStateOf("Hello") }
     val currentTime = Calendar.getInstance()
     val timePickerState = rememberTimePickerState(
@@ -138,7 +140,7 @@ fun AddToDoScreen(goBack: () -> Unit) {
             }
 
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { viewModel.addTask() },
                 Modifier
                     .fillMaxWidth()
                     .padding(top = 20.dp), colors = ButtonDefaults.buttonColors(
