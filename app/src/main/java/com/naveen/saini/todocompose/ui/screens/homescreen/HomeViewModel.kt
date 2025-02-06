@@ -1,6 +1,7 @@
 package com.naveen.saini.todocompose.ui.screens.homescreen
 
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.toMutableStateList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.naveen.saini.todocompose.data.model.Task
@@ -11,7 +12,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.zip
@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val repository: LocalDataRepository):ViewModel() {
-    private val _tasksList = MutableStateFlow(listOf<Task>())
+    private val _tasksList = MutableStateFlow(mutableStateListOf<Task>())
     var tasksList = _tasksList.asStateFlow()
     private fun getTodayTask():Flow<List<Task>>{
         return flow {
@@ -41,7 +41,7 @@ class HomeViewModel @Inject constructor(private val repository: LocalDataReposit
             }.flowOn(Dispatchers.IO)
                 .catch {  }
                 .collect{
-                    _tasksList.value = it
+                    _tasksList.value = it.toMutableStateList()
                 }
         }
     }
@@ -50,6 +50,7 @@ class HomeViewModel @Inject constructor(private val repository: LocalDataReposit
         viewModelScope.launch(Dispatchers.IO) {
             task.isCompleted = true
             repository.updateTask(task)
+            _tasksList.value[index] = task
         }
     }
 }

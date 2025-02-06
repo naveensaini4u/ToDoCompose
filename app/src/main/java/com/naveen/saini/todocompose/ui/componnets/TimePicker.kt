@@ -68,8 +68,6 @@ fun TimePickerDialog(
         onConfirm(cal)
     }
 
-    // TimePicker does not provide a default TimePickerDialog, so we use our own PickerDialog:
-    // https://issuetracker.google.com/issues/288311426
     PickerDialog(
         modifier = modifier,
         onDismissRequest = onCancel,

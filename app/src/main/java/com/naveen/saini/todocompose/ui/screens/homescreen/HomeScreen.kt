@@ -1,16 +1,10 @@
 package com.naveen.saini.todocompose.ui.screens.homescreen
 
-import android.annotation.SuppressLint
-import android.util.Log
-import androidx.annotation.RequiresApi
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.Button
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -27,9 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import com.naveen.saini.todocompose.R
-import com.naveen.saini.todocompose.data.model.Task
 import com.naveen.saini.todocompose.ui.componnets.Header
 import com.naveen.saini.todocompose.ui.componnets.TaskListItem
 

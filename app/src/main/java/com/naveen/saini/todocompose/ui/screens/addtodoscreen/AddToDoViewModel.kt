@@ -1,6 +1,5 @@
 package com.naveen.saini.todocompose.ui.screens.addtodoscreen
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.naveen.saini.todocompose.data.model.Task
