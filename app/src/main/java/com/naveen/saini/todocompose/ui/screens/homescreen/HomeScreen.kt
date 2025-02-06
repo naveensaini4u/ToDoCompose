@@ -53,7 +53,7 @@ fun HomeScreen(onNavigateToAddToDo: () -> Unit) {
                     itemsIndexed(taskList) { index, item ->
                         if (index==0 || item.isToday != taskList[index-1].isToday) {
                             Text(
-                                text = if(item.isToday) stringResource(R.string.your_tasks) else stringResource(R.string.yesterday),
+                                text = if(item.isToday) stringResource(R.string.today) else stringResource(R.string.yesterday),
                                 fontSize = 22.sp,
                                 fontWeight = FontWeight.Bold
                             )
