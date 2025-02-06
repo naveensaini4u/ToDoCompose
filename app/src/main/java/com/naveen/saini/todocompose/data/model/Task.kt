@@ -10,5 +10,6 @@ data class Task(
     val isToday:Boolean
 ){
     @PrimaryKey(autoGenerate = true)
-    var id:Int? = null;
+    var id:Int = 0
+    var isCompleted:Boolean = false
 }

@@ -5,5 +5,8 @@ import com.naveen.saini.todocompose.data.model.Task
 interface LocalDataRepository {
     suspend fun setTask(task: Task)
     suspend fun getTasks():List<Task>
-    suspend fun updateTask(id:Int):Task
+
+    suspend fun getTodayTasks():List<Task>
+    suspend fun getFutureTasks():List<Task>
+    suspend fun updateTask(task: Task)
 }

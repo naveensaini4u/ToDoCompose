@@ -3,9 +3,11 @@
     <string name="add_task_note">If you disable today, the task will be considered as tomorrow</string>
     <string name="done">Done</string>
     <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
     <string name="hour">Hour</string>
     <string name="name">Name</string>
     <string name="add_a_task">Add a Task</string>
     <string name="back_navigation">back navigation</string>
     <string name="task">Task</string>
+    <string name="your_tasks">Your Tasks</string>
 </resources>

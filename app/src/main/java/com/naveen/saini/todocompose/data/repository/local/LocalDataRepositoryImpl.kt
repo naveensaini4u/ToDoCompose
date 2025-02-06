@@ -10,9 +10,14 @@ class LocalDataRepositoryImpl @Inject constructor(val taskDao: TaskDao):LocalDat
     }
 
     override suspend fun getTasks(): List<Task> = taskDao.getAllTasks()
-
-
-    override suspend fun updateTask(id: Int): Task {
-        TODO("Not yet implemented")
+    override suspend fun getTodayTasks(): List<Task> {
+        return taskDao.getTodayTasks()
     }
+
+    override suspend fun getFutureTasks(): List<Task> {
+        return taskDao.getFutureTasks()
+    }
+
+
+    override suspend fun updateTask(task: Task) = taskDao.updateTask(task)
 }

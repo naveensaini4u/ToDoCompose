@@ -41,7 +41,6 @@ class AddToDoViewModel @Inject constructor(val repository: LocalDataRepository):
     }
 
     fun setTimeMilliseconds(timeInMillis: Long) {
-        Log.d(ViewModel::class.java.name, "setTimeMilliseconds: $timeInMillis")
         this.timeInMillis = timeInMillis
         _time.value = SimpleDateFormat("hh:mm a", Locale.US).format(timeInMillis)
     }
